@@ -10,7 +10,10 @@ function weather(lat,lon){
             const temp = (data.main.temp - 273.15).toFixed(1);
             document.querySelector('h1').innerHTML=`${temp}°C`;
             const city = (data.name);
-            document.querySelector('h2').innerHTML=`${city}`;
+            const country = (data.sys.country);
+            const weather = (data.weather[0].main);
+            document.querySelector('h2').innerHTML=`${city}, ${country}`;
+            document.querySelector('.weather').innerHTML= `Current Weather: ${weather}`;
 
         })
 }
@@ -33,7 +36,8 @@ function Main(){
 function success(position) {
     let lat = position.coords.latitude;
     let lon = position.coords.longitude;
-    console.log(lat,lon);
+    let accuracy = position.coords.accuracy;
+    console.log(lat,lon,accuracy);
     weather(lat,lon);
     // city(lat,lon);
 }
@@ -44,8 +48,8 @@ function error() {
 
 const options = {
     enableHighAccuracy: true,
-    maximumAge: 30000,
-    timeout: 27000
+    maximumAge: 60000,
+    timeout: 10000
 };
 
 

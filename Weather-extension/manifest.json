@@ -8,8 +8,7 @@
     "persistent": false
   },
   "permissions": [
-    "geolocation",
-    "<all_urls>"
+    "geolocation"
   ],
 
   "browser_action": {
