@@ -8,11 +8,13 @@
     "persistent": false
   },
   "permissions": [
+    "storage",
     "geolocation"
   ],
 
+  "options_page": "options.html",
   "options_ui": {
-    "page": "option.html",
+    "page": "options.html",
     "open_in_tab": false
   },
 
