@@ -13,8 +13,7 @@ function weather(lat,lon){
             const country = (data.sys.country);
             const weather = (data.weather[0].main);
             document.querySelector('h2').innerHTML=`${city}, ${country}`;
-            document.querySelector('.weather').innerHTML= `Current Weather: ${weather}`;
-
+            document.querySelector('.weather').innerHTML= `Current Weather: ${weather}`;git
         })
 }
 // function city(lat,lon){
