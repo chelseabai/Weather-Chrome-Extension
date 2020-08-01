@@ -1,0 +1,10 @@
+@charset "utf-8";
+#heading {
+    color: #6BB75F;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+	
+}
+body p {
+    color: #64CCA3;
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+}

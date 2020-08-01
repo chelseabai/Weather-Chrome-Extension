@@ -2,19 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        .container{
-            height: 200px;
-            width: 200px;
-        }
-    </style>
+    <title>Weather with me</title>
+    <link href="global_style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
-    <div class="container">
+    <div id="container">
+		<h3 id="heading">Weather with me</h3>
         <h1></h1>
         <h2></h2>
         <div class="weather"></div>
+		<button id="go-to-options" class="btn"><i class="material-icons">settings</i></button>
     </div>
 </body>
 <script src="popup.js"></script>
