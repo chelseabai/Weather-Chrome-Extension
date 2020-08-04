@@ -5,34 +5,79 @@
     <title>Weather with me</title>
     <link href="global_style.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<script src="fontawesome.js"></script> 
 </head>
 <body>
     <div id="container">
 		<h3 id="heading">Weather with me</h3>
-		<for id="search">
+		<form id="search">
 			<input type="text" placeholder="Search Location...">
-		</for>
+		</form>
+		
 		<div id="temp_container">
+			<h2 id="location"></h2>
 			<h1 id="temp"></h1>
-			<div id="degree">°C</div>
+			<h2 id="degree">°C</h2>
+		  <h3 id="high_temp"></h3>
+       	  <h3 id="low_temp"></h3>
         </div>
-		<img id="weather_icon"  width="50" height="50" alt=""/>
-        <div id="location"><h2></h2></div>
-        <div class="weather"></div>
-        <div id="high_temp"></div>
-        <div id="low_temp"></div>
-        <div id="wind_speed"></div>
-        <div id="humidity"></div>
+		<img id="weather_icon" src= "images/settings.png" alt=""/>
+		
+		<div id="weather"></div>
+		<div id="other_container">
+			<i class="fas fa-wind" id=wind></i>
+			<h3 id="wind_speed"></h3>
+			<h3 id="speed">km/h</h3>
+			<i class="fas fa-water" id=water></i>
+			<h3 id="humidity"></h3>
+			<h3 id="percent">%</h3>
+		</div>
+
         <div class="forecast">
-            <div class="daily" id="next1"></div>
-            <div class="daily" id="next2"></div>
-            <div class="daily" id="next3"></div>
-            <div class="daily" id="next4"></div>
-            <div class="daily" id="next5"></div>
-            <div class="daily" id="next6"></div>
-            <div class="daily" id="next7"></div>
+			<div id="per_day">
+				<h4 class="day" id="d1"></h4>
+				<img id="daily_icon" alt=""/>
+				<h3 class="daily_temp" id="next1"></h3>
+			</div>
+			
+			<div id="per_day">
+				<h4 class="day"></h4>
+				<img id="daily_icon" alt=""/>
+				<h3 class="daily_temp" id="next1"></h3>
+			</div>
+			
+			<div id="per_day">
+				<h4 class="day"></h4>
+				<img id="daily_icon" alt=""/>
+				<h3 class="daily_temp"></h3>
+			</div>
+			
+			<div id="per_day">
+				<h4 class="day"></h4>
+				<img id="daily_icon" alt=""/>
+				<h3 class="daily_temp"></h3>
+			</div>
+			
+			<div id="per_day">
+				<h4 class="day"></h4>
+				<img id="daily_icon" alt=""/>
+				<h3 class="daily_temp"></h3>
+			</div>
+			
+			<div id="per_day">
+				<h4 class="day"></h4>
+				<img id="daily_icon" alt=""/>
+				<h3 class="daily_temp" id="next1"></h3>
+			</div>
+			
+			<div id="per_day">
+				<h4 class="day"></h4>
+				<img id="daily_icon" alt=""/>
+				<h3 class="daily_temp"></h3>
+			</div>
+            
         </div>
-		<button id="go-to-options" class="btn"><i class="material-icons">settings</i></button>
+		<button id="go-to-options" class="btn"><i class="fas fa-cog"></i></button>
     </div>
 </body>
 <script src="popup.js"></script>
