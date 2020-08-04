@@ -11,22 +11,50 @@ body p {
 
 .btn {
 	background-color: #7BD2DE;
-  border: none; 
-  color: white;
-  padding: 7px 8px; 
-  font-size: 16px; 
-  cursor: pointer; 
+    border: none;
+    color: white;
+    padding: 7px 8px;
+    font-size: 16px;
+    cursor: pointer;
+    right: 5px;
+    top: 5px;
+    position: absolute;
 }
 .btn:hover {
   background-color: #D098D5;
 }
 
 #container {
-    height: 200px;
-    width: 200px;
-
+    height: 400px;
+    width: 400px;
 }
+
 #page_container {
 	margin: auto;
 	width: 50%;
+}
+
+.temp {
+    border: 3px solid black;
+    width:150px;
+    height:70px;
+    overflow: hidden;
+}
+
+.location{
+    border: 3px solid black;
+}
+
+.weather{
+    border: 3px solid black;
+}
+
+h1{
+    font-size: 50px;
+    display: inline-block;
+}
+
+.degree{
+    font-size: 30px;
+    display: inline-block;
 }
