@@ -8,12 +8,12 @@ function weather(lat,lon){
         .then(response => response.json())
         .then(data => {
             const temp = (data.main.temp - 273.15).toFixed(1);
-            document.querySelector('h1').innerHTML=`${temp}°C`;
+            document.querySelector('h1').innerHTML=`${temp}`;
             const city = (data.name);
             const country = (data.sys.country);
             const weather = (data.weather[0].main);
             document.querySelector('h2').innerHTML=`${city}, ${country}`;
-            document.querySelector('.weather').innerHTML= `Current Weather: ${weather}`;git
+            document.querySelector('.weather').innerHTML= `Current Weather: ${weather}`;
         })
 }
 // function city(lat,lon){
@@ -35,8 +35,7 @@ function Main(){
 function success(position) {
     let lat = position.coords.latitude;
     let lon = position.coords.longitude;
-    let accuracy = position.coords.accuracy;
-    console.log(lat,lon,accuracy);
+    console.log(lat,lon);
     weather(lat,lon);
     // city(lat,lon);
 }
@@ -54,14 +53,14 @@ const options = {
 
 document.addEventListener('DOMContentLoaded',()=>{
     Main();
-
+    document.querySelector('#go-to-options').addEventListener('click',function() {
+        // chrome.runtime.openOptionsPage();
+        if (chrome.runtime.openOptionsPage) {
+            chrome.runtime.openOptionsPage();
+        } else {
+            window.open(chrome.runtime.getURL('options.html'));
+        }
+    });
 });
 
-document.querySelector('#go-to-options').addEventListener("click", function() {
-    chrome.runtime.openOptionsPage();
-    // if (chrome.runtime.openOptionsPage) {
-    //     chrome.runtime.openOptionsPage();
-    //   } else {
-    //     window.open(chrome.runtime.getURL('options.html'));
-    //   }
-  });
+
