@@ -25,8 +25,8 @@ body p {
 }
 
 #container {
-    height: 400px;
-    width: 400px;
+    height: 500px;
+    width: 360px;
 }
 
 #page_container {
@@ -37,17 +37,22 @@ body p {
 #temp_container {
     border: 3px solid black;
     width:200px;
-    height:70px;
+    height:150px;
     overflow: hidden;
-	line-height: 15px;
-	padding-top: 0px;
+/*	line-height: 15px;*/
+/*	padding-top: 0px;*/
 	vertical-align: middle;
 	text-align: center;
-	display: table-cell;
+/*	display: table-cell;*/
+	display: inline-block;
+/*	float: left;*/
 }
 
 #location{
     border: 3px solid black;
+	position: relative;
+	top: -20px;
+	
 }
 
 .weather{
@@ -62,35 +67,115 @@ h1{
 #degree{
     font-size: 30px;
     display: inline-block;
-}#high_temp {
-    border-color: #000000;
+	position: relative;
+	top: -35px;
+}
+
+#high_temp {
+	position: relative;
+	bottom: 60px;
+	right: 47px;
 }
 
 
 #low_temp {
-	border-color: #000000;
+	position: relative;
+	bottom: 93px;
+	left: 47px;
 }
 
 #wind_speed {
-	border-color: #000000;
+	display: inline;
+	font-size: 30pt;
+	position: relative;
+	left: 15px;
 }
 
 #humidity {
-	border-color: #000000;
+	display: inline;
+	font-size: 30pt;
+	position: relative;
+	left: 45px;
 }
 
 .forecast {
-	border-color: #000000;
+	border: 3px solid black;
+	position: relative;
+	left: 2px;
 }
 
 .day_forecast {
 	border-color: #000000;
 }
 #temp {
-    font-size: 35pt;
+    font-size: 50pt;
+	line-height: 0px;
+	position: relative;
+	top: -35px;
 	
 }
 
 #weather_icon {
+/*	text-align: center;*/
+	vertical-align: middle;
+	width: 150px;
+	height: 150px;
+}
 
+#search {
+/*	width: 500px;*/
+	display: block;
+}
+
+#weather {
+	position: relative;
+	bottom: 20px;
+	left: 220px;
+}
+
+#other_container {
+    border: 3px solid black;
+	height: 80px;
+/*	overflow: hidden;*/
+}
+
+#wind {
+	display: inline;
+	position: relative;
+	top: 8px;
+	left: 10px;
+	font-size: 60px;
+}
+
+#speed {
+	display: inline;
+	position: relative;
+	left: 15px;
+}
+
+#water {
+	display: inline;
+	position: relative;
+	top: 8px;
+	left: 40px;
+	font-size: 60px;
+}
+
+#percent {
+	display: inline;
+	position: relative;
+	left: 45px;
+}
+
+#daily_icon {
+	width: 40px;
+	height: 40px;
+}
+
+#per_day {
+	border: 3px solid black;
+	display: inline-block;
+	width: 41.1px;
+	vertical-align: middle;
+	text-align: center;
 }

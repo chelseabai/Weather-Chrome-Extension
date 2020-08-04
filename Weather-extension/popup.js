@@ -10,7 +10,7 @@ function weather(lat,lon){
             const temp = (data.main.temp - 273.15).toFixed(1);
             const city = (data.name);
             const country = (data.sys.country);
-            const weather = (data.weather[0].main);
+            const today_weather = (data.weather[0].main);
             const humidity = (data.main.humidity);
             const wind_speed = (data.wind.speed);
             const temp_high = (data.main.temp_max - 273.15).toFixed(1);
@@ -18,23 +18,33 @@ function weather(lat,lon){
             document.querySelector('#high_temp').innerHTML=`High: ${temp_high}`;
             document.querySelector('#low_temp').innerHTML=`Low: ${temp_low}`;
             document.querySelector('h1').innerHTML=`${temp}`;
-            document.querySelector('#humidity').innerHTML=`Humidity: ${humidity}`;
-            document.querySelector('#wind_speed').innerHTML=`Wind Speed: ${wind_speed}`;
+            document.querySelector('#humidity').innerHTML=`${humidity}`;
+            document.querySelector('#wind_speed').innerHTML=`${wind_speed}`;
             document.querySelector('h2').innerHTML=`${city}, ${country}`;
-            document.querySelector('.weather').innerHTML= `Current Weather: ${weather}`;
+            document.querySelector('#weather').innerHTML= `Current Weather: ${today_weather}`;
+
         });
     let forecast_url= "https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&exclude=minutely,hourly,current&appid=3bec66c864ff4db301e895a8b65d8529";
     fetch(forecast_url)
         .then(response => response.json())
         .then(data =>{
-            var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            var days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
             var i;
             for (i = 0; i < 7; i++) {
                 const weekday = days[new Date(data.daily[i].dt * 1000).getDay()];
                 const daily_temp = (data.daily[i].temp.day - 273.5).toFixed(1);
-                document.querySelectorAll(".daily")[i].innerHTML=`${weekday},${daily_temp}`;
+                document.querySelectorAll(".daily_temp")[i].innerHTML=`${daily_temp}'C`;
+                document.querySelectorAll(".day")[i].innerHTML=`${weekday}`;
             }
         })
+    
+    // const test = ('The if statment worked');
+    // if (document.getElementById('#weather').innerHTML == "Current Weather: Clouds") {
+    //     // const testt = (`yes`);
+    //     // document.getElementById('#weather_icon').src = "images\cloudy-weather-transparent.gif";
+    //     document.querySelector('#heading').innerHTML=`${test}`;
+    //     // document.querySelector('#weather_icon').innerHTML= $("#weather_icon").attr("src", weather_ic["cloudy"].src);
+    // }
 }
 
 
