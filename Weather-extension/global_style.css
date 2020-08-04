@@ -34,14 +34,19 @@ body p {
 	width: 50%;
 }
 
-.temp {
+#temp_container {
     border: 3px solid black;
-    width:150px;
+    width:200px;
     height:70px;
     overflow: hidden;
+	line-height: 15px;
+	padding-top: 0px;
+	vertical-align: middle;
+	text-align: center;
+	display: table-cell;
 }
 
-.location{
+#location{
     border: 3px solid black;
 }
 
@@ -54,7 +59,38 @@ h1{
     display: inline-block;
 }
 
-.degree{
+#degree{
     font-size: 30px;
     display: inline-block;
+}#high_temp {
+    border-color: #000000;
+}
+
+
+#low_temp {
+	border-color: #000000;
+}
+
+#wind_speed {
+	border-color: #000000;
+}
+
+#humidity {
+	border-color: #000000;
+}
+
+.forecast {
+	border-color: #000000;
+}
+
+.day_forecast {
+	border-color: #000000;
+}
+#temp {
+    font-size: 35pt;
+	
+}
+
+#weather_icon {
+
 }
