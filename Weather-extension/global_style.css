@@ -1,55 +1,15 @@
 @charset "utf-8";
 #heading {
-	font-family: "Marker Felt",sans-serif;
-	font-size: 20px;
-	margin-left: 20px;
-	margin-top: 15px;
-	position: absolute;
+/*	font-size: 20pt;*/
+/*   	background: linear-gradient(to bottom right, #0033cc, #cc99ff);*/
+/*
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+*/
 }
 
 
-body p {
-    color: #64CCA3;
-    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
-}
 
-body {
-	margin: 0 0;
-}
-
-#loading{
-	height: 500px;
-	width: 360px;
-	background:linear-gradient(to bottom right,white,#80D8FF);
-	position: absolute;
-}
-
-#loading-image{
-	width:75px;
-	height:75px;
-	position:absolute;
-	z-index:9999;
-	margin-left: 40%;
-	margin-top: 50%;
-	display: inline-block;
-}
-
-#loading p{
-	position: absolute;
-	display: inline-block;
-	width: 100%;
-	text-align: center;
-	margin-top: 50%;
-	padding-top: 75px;
-	color: #01579B;
-	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
-}
-
-#top_bar {
-	background-color: white;
-	height:35px;
-	width:100%;
-}
 
 .btn {
 	border: none;
@@ -286,4 +246,28 @@ body {
 	top: 90px;
 	left: 198px;
 	background-color: whitesmoke;
+}
+
+#loading {
+	position: fixed;
+	width: 440px;
+	height: 360px;
+}
+
+#loading-image {
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	top: 110px;
+	left: 100px;
+}
+
+h5 {
+	background: linear-gradient(to bottom right, #ff8701, #31abe4);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-size: 12pt;
+	position: absolute;
+	top: 220px;
+	left: 100px;
 }

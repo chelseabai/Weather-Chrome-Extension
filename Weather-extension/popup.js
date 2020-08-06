@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 	var main_d = "#cc99ff"; //dark colour
 	var accent_l = "#e89232"; //light colour
 	var accent_d = "#b057b9"; //dark colour
-    const form = document.getElementById("container");
+    const form = document.getElementById("search");
     form.addEventListener('submit',function(event){
         Search();
         event.preventDefault();
