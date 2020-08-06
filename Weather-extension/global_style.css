@@ -17,11 +17,31 @@ body {
 	margin: 0 0;
 }
 
+#loading-image{
+	width:75px;
+	height:75px;
+	position:absolute;
+	z-index:9999;
+	margin-left: 40%;
+	margin-top: 50%;
+	display: inline-block;
+}
+
+#loading p{
+	position: absolute;
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	margin-top: 50%;
+	padding-top: 75px;
+	color: grey;
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+}
+
 #top_bar {
 	background-color: white;
 	height:35px;
 	width:100%;
-	position: fixed;
 }
 
 .btn {

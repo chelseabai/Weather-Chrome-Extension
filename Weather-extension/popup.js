@@ -122,8 +122,17 @@ function Search() {
     })
 }
 
+
+
+
 document.addEventListener('DOMContentLoaded',()=>{
-    const form = document.getElementById("search");
+    document.getElementById('container').style.visibility="hidden";
+    setTimeout(function(){
+        document.getElementById('loading').style.visibility="hidden";
+        document.getElementById('container').style.visibility="visible";
+    },4000);
+
+    const form = document.getElementById("container");
     form.addEventListener('submit',function(event){
         Search();
         event.preventDefault();
