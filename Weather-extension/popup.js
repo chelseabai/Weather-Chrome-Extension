@@ -32,7 +32,7 @@ function weather(lat,lon){
             if (today_weather === "Thunderstorm"){
                 document.querySelector('#weather_icon').src = "images/torrential-rain-weather_200_transparent.gif";}
             
-			if (7 < time && time <= 19){
+			if (7 < time && time <= 9){
                 document.getElementById("other_container").style.background = "linear-gradient(to bottom right, #ffffcc 0%, #ffcc99 100%)";
 				var content = document.querySelectorAll("#wind, #wind_speed, #speed, #water, #humidity, #percent");
 				var n;
@@ -45,7 +45,9 @@ function weather(lat,lon){
 				var content = document.querySelectorAll("#wind, #wind_speed, #speed, #water, #humidity, #percent");
 				var n;
 				for (n = 0; n < content.length; n++) {
-  					content[n].style.color = "#000066";
+  					content[n].style.color = 
+						"#000066";
+//						"#d0a1ff";
 				}
             }
 		

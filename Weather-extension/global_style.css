@@ -35,7 +35,7 @@ body p {
 }
 
 #temp_container {
-    border: 3px solid black;
+/*    border: 3px solid black;*/
     width:200px;
     height:150px;
 	text-align: center;
@@ -134,7 +134,7 @@ h1{
 
 #other_container {
 	height: 80px;
-	border-radius: 10px;
+	border-radius: 15px;
 }
 
 #wind {
