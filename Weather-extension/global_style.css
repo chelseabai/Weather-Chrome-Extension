@@ -44,7 +44,8 @@ body p {
 }
 
 #location{
-    border: 3px solid black;
+/*    border: 3px solid black;*/
+	height: 40px;
 	position: relative;
 	top: -20px;
 	
@@ -63,7 +64,7 @@ h1{
     font-size: 30px;
     display: inline-block;
 	position: relative;
-	top: -35px;
+	top: -40px;
 }
 
 #high_temp {
@@ -92,7 +93,7 @@ h1{
 	font-size: 30pt;
 	position: relative;
 	top: 10px;
-	left: 85px;
+	left: 65px;
 }
 
 .forecast {
@@ -108,7 +109,7 @@ h1{
     font-size: 50pt;
 	line-height: 0px;
 	position: relative;
-	top: -35px;
+	top: -40px;
 	
 }
 
@@ -156,7 +157,7 @@ h1{
 	display: inline;
 	position: relative;
 	top: 10px;
-	left: 80px;
+	left: 60px;
 	font-size: 40px;
 }
 
@@ -164,7 +165,7 @@ h1{
 	display: inline;
 	position: relative;
 	top: 10px;
-	left: 85px;
+	left: 65px;
 }
 
 .daily_icon {
