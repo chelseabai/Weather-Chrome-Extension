@@ -15,6 +15,7 @@ function weather(lat,lon){
             const wind_speed = (data.wind.speed).toPrecision(2);
             const temp_high = (data.main.temp_max - 273.15).toFixed(1);
             const temp_low = (data.main.temp_min - 273.15).toFixed(1);
+			const time = new Date(data.dt * 1000).getHours();
 
             if (today_weather === "Clouds"){
                 document.querySelector('#weather_icon').src = "images/cloudy-weather_200_transparent.gif";}
@@ -30,10 +31,20 @@ function weather(lat,lon){
                 document.querySelector('#weather_icon').src = "images/torrential-rain-weather_200_transparent.gif";}
             
 			if (7 < time && time <= 19){
-                document.getElementById("other_container").style.background = "orange";
+                document.getElementById("other_container").style.background = "linear-gradient(to bottom right, #ffffcc 0%, #ffcc99 100%)";
+				var content = document.querySelectorAll("#wind, #wind_speed, #speed, #water, #humidity, #percent");
+				var n;
+				for (n = 0; n < content.length; n++) {
+  					content[n].style.color = "#ff9933";
+				}
             }
-            if (time <= 7 || time > 19){
-                document.getElementById("other_container").style.background = "blue";
+            else {
+                document.getElementById("other_container").style.background = "linear-gradient(to bottom right, #0033cc 0%, #cc99ff 100%)";
+				var content = document.querySelectorAll("#wind, #wind_speed, #speed, #water, #humidity, #percent");
+				var n;
+				for (n = 0; n < content.length; n++) {
+  					content[n].style.color = "#000066";
+				}
             }
 		
             document.querySelector('#high_temp').innerHTML=`High: ${temp_high}`;

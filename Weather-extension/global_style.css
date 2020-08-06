@@ -133,9 +133,8 @@ h1{
 }
 
 #other_container {
-    border: 3px solid black;
 	height: 80px;
-/*	overflow: hidden;*/
+	border-radius: 10px;
 }
 
 #wind {
