@@ -11,15 +11,13 @@ function weather(lat,lon){
             const city = (data.name);
             const country = (data.sys.country);
             const today_weather = (data.weather[0].main);
-            const humidity = (data.main.humidity);
+            const humidity = (data.main.humidity).toPrecision(3);
             const wind_speed = (data.wind.speed).toPrecision(2);
             const temp_high = (data.main.temp_max - 273.15).toFixed(1);
             const temp_low = (data.main.temp_min - 273.15).toFixed(1);
             var d = new Date();
             var n = d.getUTCHours();
             const time = (n + new Date(data.timezone * 1000).getUTCHours()) % 24;
-            var content = document.querySelectorAll("#wind, #wind_speed, #speed, #water, #humidity, #percent");
-            var m;
 
             if (today_weather === "Clouds"){
                 document.querySelector('#weather_icon').src = "images/cloudy-weather_200_transparent.gif";}
@@ -35,23 +33,22 @@ function weather(lat,lon){
                 document.querySelector('#weather_icon').src = "images/torrential-rain-weather_200_transparent.gif";}
             
             if (7 < time && time <= 19){
-                document.getElementById("other_container").style.background = "linear-gradient(to bottom right, #ffffcc 0%, #ffcc99 100%)";
-                for (m = 0; m < content.length; m++) {
-                    content[m].style.color = "#ff9933";
-                }
+				main_l = "#ffffcc"; //light colour
+				main_d = "#ffcc99"; //dark colour
+				accent_l = "#ffffcc"; //light colour
+				accent_d = "#ffcc99"; //dark colour
             }
             else {
-                document.getElementById("other_container").style.background = "linear-gradient(to bottom right, #0033cc 0%, #cc99ff 100%)";
-                for (m = 0; m < content.length; m++) {
-                    content[m].style.color = 
-                        "#000066"; //dark blue
-        //				"#d0a1ff"; //light purple
-                }
+				main_l = "#0033cc"; //light colour
+				main_d = "#cc99ff"; //dark colour
+				accent_l = "#e89232"; //light colour
+				accent_d = "#b057b9"; //dark colour
             }
+			DayNight(accent_l,accent_d,main_l,main_d);
 		
             document.querySelector('#high_temp').innerHTML=`High: ${temp_high}`;
             document.querySelector('#low_temp').innerHTML=`Low: ${temp_low}`;
-            document.querySelector('h1').innerHTML=`${temp}`;
+            document.querySelector('#temp').innerHTML=`${temp}`;
             document.querySelector('#humidity').innerHTML=`${humidity}`;
             document.querySelector('#wind_speed').innerHTML=`${wind_speed}`;
             document.querySelector('h2').innerHTML=`${city}, ${country}`;
@@ -122,20 +119,71 @@ function Search() {
     })
 }
 
+function DayNight(accent_l,accent_d,main_l,main_d){
+	var content = document.querySelectorAll("#wind, #wind_speed, #speed, #water, #humidity, #percent, #location, #degree, #high_temp, #low_temp");
+    var m;
+	
+	document.getElementById("other_container").style.background = `linear-gradient(to bottom right, ${main_l} 0%, ${main_d}) 100%`;
+	document.getElementById("search").style.background = `linear-gradient(to bottom right, ${main_l} 0%, ${main_d}) 100%`;
+	document.getElementById("temp_container").style.background = `linear-gradient(to bottom right, ${accent_l} 0%, ${accent_d}) 100%`;
+	document.getElementById("heading").style.color = main_d;
+	document.getElementById("go").style.background = main_d;
+	for (a = 0; a < 6; a++) {
+	document.getElementsByClassName("line")[a].style.background = main_l;
+	}
+//	for (m = 0; m < content.length; m++) {
+//		content[m].style.color = 
+//			"#000066"; //dark blue
+//				"#d0a1ff"; //light purple
+//	}
+}
+
+function LightDark(saved_mode, accent_l,accent_d) {
+//	chrome.storage.sync.set({
+//      savedMode: saved_mode
+//    });
+	if (saved_mode > 0) {
+		document.getElementById("mode_icon").className = "fas fa-lightbulb";
+		document.getElementById("mode").style.background = accent_d;
+		document.getElementById("mode").style.color = "#000000";
+		document.querySelector("body").style.background = "#ffffff";
+		document.querySelector("body").style.color = "#000000";
+	} else {
+		document.getElementById("mode_icon").className = "far fa-lightbulb";
+		document.getElementById("mode").style.background = accent_l;
+		document.getElementById("mode").style.color = "#ffffff";
+		document.querySelector("body").style.background = "#000000";
+		document.querySelector("body").style.color = "#ffffff";
+	}
+}
+
 document.addEventListener('DOMContentLoaded',()=>{
+	var saved_mode = 1;
+	var main_l = "#0033cc"; //light colour
+	var main_d = "#cc99ff"; //dark colour
+	var accent_l = "#e89232"; //light colour
+	var accent_d = "#b057b9"; //dark colour
     const form = document.getElementById("search");
     form.addEventListener('submit',function(event){
         Search();
         event.preventDefault();
     });
     Main();
-    document.querySelector('#go-to-options').addEventListener('click',function() {
-        // chrome.runtime.openOptionsPage();
-        if (chrome.runtime.openOptionsPage) {
-            chrome.runtime.openOptionsPage();
-        } else {
-            window.open(chrome.runtime.getURL('options.html'));
-        }
+	LightDark(saved_mode, accent_l,accent_d);
+    document.querySelector('#mode').addEventListener('click',function() {
+//		chrome.runtime.openOptionsPage();
+//		if (chrome.runtime.openOptionsPage) {
+//            chrome.runtime.openOptionsPage();
+//        } else {
+//            window.open(chrome.runtime.getURL('options.html'));
+//        }
+		if (saved_mode > 0) {
+			saved_mode = -1;
+			LightDark(saved_mode, accent_l,accent_d);
+		} else {
+			saved_mode = 1;
+			LightDark(saved_mode, accent_l,accent_d);
+		}
     });
 });
 

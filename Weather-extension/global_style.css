@@ -1,8 +1,13 @@
 @charset "utf-8";
 #heading {
-    color: #6BB75F;
-    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;	
+/*	font-size: 20pt;*/
+/*   	background: linear-gradient(to bottom right, #0033cc, #cc99ff);*/
+/*
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+*/
 }
+
 
 body p {
     color: #64CCA3;
@@ -10,22 +15,15 @@ body p {
 }
 
 .btn {
-	background-color: #7BD2DE;
-    border: none;
-    color: white;
-    padding: 7px 8px;
-    font-size: 16px;
-    cursor: pointer;
-    right: 5px;
-    top: 5px;
-    position: absolute;
+	border: none;
+	cursor: pointer;
 }
-.btn:hover {
-  background-color: #D098D5;
+#mode:hover {
+  opacity: 1;
 }
 
 #container {
-    height: 500px;
+    height: 440px;
     width: 360px;
 }
 
@@ -41,14 +39,21 @@ body p {
 	text-align: center;
 	display: inline-block;
 	overflow: hidden;
+	position: absolute;
+	left: -2px;
+	top: 90px;
+/*	border-radius: 15px;*/
+	background: grey;
+/*	font-size: 0px;*/
 }
 
 #location{
 /*    border: 3px solid black;*/
 	height: 40px;
+	width: 180px;
 	position: relative;
-	top: -20px;
-	
+	top: -10px;
+	left: 10px;
 }
 
 .weather{
@@ -69,14 +74,14 @@ h1{
 
 #high_temp {
 	position: relative;
-	bottom: 60px;
+	bottom: 70px;
 	right: 47px;
 }
 
 
 #low_temp {
 	position: relative;
-	bottom: 93px;
+	bottom: 103px;
 	left: 47px;
 }
 
@@ -85,7 +90,7 @@ h1{
 	font-size: 30pt;
 	position: relative;
 	top: 10px;
-	left: 15px;
+	left: 25px;
 }
 
 #humidity {
@@ -93,13 +98,14 @@ h1{
 	font-size: 30pt;
 	position: relative;
 	top: 10px;
-	left: 65px;
+	left: 60px;
 }
 
 .forecast {
 /*	border: 3px solid black;*/
-	position: relative;
-	left: 2px;
+	position: absolute;
+	left: 10px;
+	top: 315px;
 }
 
 .day_forecast {
@@ -109,39 +115,51 @@ h1{
     font-size: 50pt;
 	line-height: 0px;
 	position: relative;
-	top: -40px;
-	
+	top: -35px;
 }
 
 #weather_icon {
-	position: relative;
-	left: 15px;
-	bottom: 30px;
+	position: absolute;
+	left: 220px;
+	top: 90px;
 	width: 120px;
 	height: 120px;
 }
 
 #search {
-/*	width: 500px;*/
 	display: block;
+	background: grey;
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-bottom: 0px;
+	width: 380px;
+	height: 34.6px;
+	position: absolute;
+	left: -2px;
 }
 
 #weather {
-	position: relative;
-	bottom: 20px;
+	position: absolute;
+	top: 209px;
 	left: 220px;
+	color: black;
 }
 
 #other_container {
 	height: 80px;
-	border-radius: 15px;
+	width: 380px;
+/*	border-radius: 15px;*/
+/*	border: 2px solid;*/
+	position: absolute;
+	top: 235px;
+	left: -2px;
 }
 
 #wind {
 	display: inline;
 	position: relative;
 	top: 10px;
-	left: 10px;
+	left: 20px;
 	font-size: 40px;
 }
 
@@ -149,14 +167,14 @@ h1{
 	display: inline;
 	position: relative;
 	top: 10px;
-	left: 15px;
+	left: 25px;
 }
 
 #water {
 	display: inline;
 	position: relative;
 	top: 10px;
-	left: 60px;
+	left: 55px;
 	font-size: 40px;
 }
 
@@ -164,7 +182,7 @@ h1{
 	display: inline;
 	position: relative;
 	top: 10px;
-	left: 65px;
+	left: 60px;
 }
 
 .daily_icon {
@@ -173,15 +191,62 @@ h1{
 }
 
 #per_day {
-/*	border: 3px solid black;*/
 	display: inline-block;
-	width: 47px;
+	width: 44px;
 	vertical-align: middle;
 	text-align: center;
 }
 
 #go {
 	position: relative;
-	left: 170px;
+	left: 325px;
 	bottom: 21.5px;
+	height: 21.5px;
+	width: auto;
+/*	background-color: #cc99ff;*/
+	color: white;
+    border: none;
+	cursor: pointer;
+}
+
+
+
+body {
+	font-family: "Segoe UI";
+}
+
+
+
+#search_input {
+/*	border: 2px solid;*/
+	width: 325px;
+}
+
+.line {
+	display: inline-block;
+	vertical-align: middle;
+	width: 1px;
+	height: 60px;
+	background: grey;
+}
+
+#mode {
+	border: none;
+	cursor: pointer;
+	background-color: #7BD2DE;
+    padding: 7px 10px;
+    font-size: 16px;
+    right: 5px;
+    top: 5px;
+    position: absolute;
+	opacity: 0.5;
+}
+
+#icon_bg {
+	width: 200px;
+	height: 150px;
+	position: absolute;
+	top: 90px;
+	left: 198px;
+	background-color: whitesmoke;
 }

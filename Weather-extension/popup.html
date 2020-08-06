@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <title>Weather with me</title>
     <link href="global_style.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<script src="fontawesome.js"></script> 
 </head>
 <body>
     <div id="container">
-		<h3 id="heading">Weather with me</h3>
+		<div id="top_bar">
+			<h3 id="heading">WEATHER WITH ME</h3>
+			<button id="mode"><i id="mode_icon"></i></button>
+		</div>
 		<form id="search">
             <input id="search_input" type="text" placeholder="Search Location..."><br>
             <input id="go" type="submit" value="GO">
@@ -21,9 +23,11 @@
 		  <h3 id="high_temp"></h3>
        	  <h3 id="low_temp"></h3>
         </div>
+		<div id="icon_bg"></div>
 		<img id="weather_icon" alt=""/>
-		
 		<div id="weather"></div>
+		
+		
 		<div id="other_container">
 			<i class="fas fa-wind" id=wind></i>
 			<h3 id="wind_speed"></h3>
@@ -38,37 +42,37 @@
 				<img class="daily_icon" alt=""/>
 				<h3 class="daily_temp" id="next1"></h3>
 			</div>
-			
+			<div class="line"></div>
 			<div id="per_day">
 				<h4 class="day"></h4>
 				<img class="daily_icon" alt=""/>
 				<h3 class="daily_temp" id="next1"></h3>
 			</div>
-			
+			<div class="line"></div>
 			<div id="per_day">
 				<h4 class="day"></h4>
 				<img class="daily_icon" alt=""/>
 				<h3 class="daily_temp"></h3>
 			</div>
-			
+			<div class="line"></div>
 			<div id="per_day">
 				<h4 class="day"></h4>
 				<img class="daily_icon" alt=""/>
 				<h3 class="daily_temp"></h3>
 			</div>
-			
+			<div class="line"></div>
 			<div id="per_day">
 				<h4 class="day"></h4>
 				<img class="daily_icon" alt=""/>
 				<h3 class="daily_temp"></h3>
 			</div>
-			
+			<div class="line"></div>
 			<div id="per_day">
 				<h4 class="day"></h4>
 				<img class="daily_icon" alt=""/>
 				<h3 class="daily_temp" id="next1"></h3>
 			</div>
-			
+			<div class="line"></div>
 			<div id="per_day">
 				<h4 class="day"></h4>
 				<img class="daily_icon" alt=""/>
@@ -76,7 +80,6 @@
 			</div>
             
         </div>
-		<button id="go-to-options" class="btn"><i class="fas fa-cog"></i></button>
     </div>
 </body>
 <script src="popup.js"></script>
