@@ -18,8 +18,8 @@ function weather(lat,lon){
             var d = new Date();
             var n = d.getUTCHours();
             const time = (n + new Date(data.timezone * 1000).getUTCHours()) % 24;
-	    var content = document.querySelectorAll("#wind, #wind_speed, #speed, #water, #humidity, #percent");
-	    var m;
+	        var content = document.querySelectorAll("#wind, #wind_speed, #speed, #water, #humidity, #percent");
+	        var m;
 
             if (today_weather === "Clouds"){
                 document.querySelector('#weather_icon').src = "images/cloudy-weather_200_transparent.gif";}
@@ -34,20 +34,20 @@ function weather(lat,lon){
             if (today_weather === "Thunderstorm"){
                 document.querySelector('#weather_icon').src = "images/torrential-rain-weather_200_transparent.gif";}
             
-	    if (7 < time && time <= 19){
-                document.getElementById("other_container").style.background = "linear-gradient(to bottom right, #ffffcc 0%, #ffcc99 100%)";
-		for (m = 0; m < content.length; m++) {
-			content[m].style.color = "#ff9933";
-		}
-            }
-            else {
-                document.getElementById("other_container").style.background = "linear-gradient(to bottom right, #0033cc 0%, #cc99ff 100%)";
-		for (m = 0; m < content.length; m++) {
-			content[m].style.color = 
-				"#000066"; //dark blue
-//				"#d0a1ff"; //light purple
-		}
-            }
+            if (7 < time && time <= 19){
+                    document.getElementById("other_container").style.background = "linear-gradient(to bottom right, #ffffcc 0%, #ffcc99 100%)";
+                    for (m = 0; m < content.length; m++) {
+                        content[m].style.color = "#ff9933";
+                    }
+                }
+                else {
+                    document.getElementById("other_container").style.background = "linear-gradient(to bottom right, #0033cc 0%, #cc99ff 100%)";
+                for (m = 0; m < content.length; m++) {
+                    content[m].style.color = 
+                        "#000066"; //dark blue
+        //				"#d0a1ff"; //light purple
+                    }
+                }
 		
             document.querySelector('#high_temp').innerHTML=`High: ${temp_high}`;
             document.querySelector('#low_temp').innerHTML=`Low: ${temp_low}`;
