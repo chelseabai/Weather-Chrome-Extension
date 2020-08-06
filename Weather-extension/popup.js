@@ -15,7 +15,9 @@ function weather(lat,lon){
             const wind_speed = (data.wind.speed);
             const temp_high = (data.main.temp_max - 273.15).toFixed(1);
             const temp_low = (data.main.temp_min - 273.15).toFixed(1);
-            const time = new Date(data.dt * 1000).getHours();
+            var d = new Date();
+            var n = d.getUTCHours();
+            const time = (n + new Date(data.timezone * 1000).getUTCHours()) % 24;
 
             if (today_weather === "Clouds"){
                 document.querySelector('#weather_icon').src = "images/cloudy-weather_200_transparent.gif";}
@@ -30,13 +32,12 @@ function weather(lat,lon){
             if (today_weather === "Thunderstorm"){
                 document.querySelector('#weather_icon').src = "images/torrential-rain-weather_200_transparent.gif";}
 
-            if (7 < time && time <= 19){
+            if (7 < time && time <= 19) {
                 document.getElementById("other_container").style.background = "orange";
-            }
-            if (time <= 7 || time > 19){
+            } else{
                 document.getElementById("other_container").style.background = "blue";
             }
-            document.querySelector('#high_temp').innerHTML=`High: ${temp_high}`;
+            document.querySelector('#high_temp').innerHTML=`High: ${temp_high},${time}`;
             document.querySelector('#low_temp').innerHTML=`Low: ${temp_low}`;
             document.querySelector('h1').innerHTML=`${temp}`;
             document.querySelector('#humidity').innerHTML=`${humidity}`;
