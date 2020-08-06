@@ -1,6 +1,5 @@
 
 // OpenWeather API Key 3bec66c864ff4db301e895a8b65d8529
-// Geocoding API Key AIzaSyA-kn96agu6mhp9zee4zcyCn5dhVntJISw
 
 function weather(lat,lon){
     let weather_url = "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=3bec66c864ff4db301e895a8b65d8529"
@@ -70,14 +69,6 @@ function weather(lat,lon){
                 document.querySelectorAll(".daily_icon")[i].src = icon_url;
             }
         })
-    
-    // const test = ('The if statment worked');
-    // if (document.getElementById('#weather').innerHTML == "Current Weather: Clouds") {
-    //     // const testt = (`yes`);
-    //     // document.getElementById('#weather_icon').src = "images\cloudy-weather_200_transparent.gif";
-    //     document.querySelector('#heading').innerHTML=`${test}`;
-    //     // document.querySelector('#weather_icon').innerHTML= $("#weather_icon").attr("src", weather_ic["cloudy"].src);
-    // }
 }
 
 function Main(){
@@ -91,7 +82,6 @@ function success(position) {
     let lon = position.coords.longitude;
     console.log(lat,lon);
     weather(lat,lon);
-    // city(lat,lon);
 }
 
 function error() {
@@ -158,12 +148,18 @@ function LightDark(saved_mode, accent_l,accent_d) {
 }
 
 document.addEventListener('DOMContentLoaded',()=>{
-	var saved_mode = 1;
+    Main();
+    document.getElementById('container').style.visibility="hidden";
+    setTimeout(function(){
+        document.getElementById('loading').style.visibility="hidden";
+        document.getElementById('container').style.visibility="visible";
+    },4000);
+    var saved_mode = 1;
 	var main_l = "#0033cc"; //light colour
 	var main_d = "#cc99ff"; //dark colour
 	var accent_l = "#e89232"; //light colour
 	var accent_d = "#b057b9"; //dark colour
-    const form = document.getElementById("search");
+    const form = document.getElementById("container");
     form.addEventListener('submit',function(event){
         Search();
         event.preventDefault();
@@ -186,17 +182,3 @@ document.addEventListener('DOMContentLoaded',()=>{
 		}
     });
 });
-
-
-
-
-// function city(lat,lon){
-//     let city_url = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lon+"&result_type=administrative_area_level_1&key=AIzaSyA-kn96agu6mhp9zee4zcyCn5dhVntJISw"
-//     fetch(city_url)
-//         .then(response => response.json())
-//         .then(data => {
-//             console.log(data);
-//             const city = (data['results'][0].formatted_address);
-//             document.querySelector('h2').innerHTML=`${city}`;
-//         })
-// }
