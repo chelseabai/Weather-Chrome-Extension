@@ -15,7 +15,9 @@ function weather(lat,lon){
             const wind_speed = (data.wind.speed).toPrecision(2);
             const temp_high = (data.main.temp_max - 273.15).toFixed(1);
             const temp_low = (data.main.temp_min - 273.15).toFixed(1);
-			const time = new Date(data.dt * 1000).getHours();
+            var d = new Date();
+            var n = d.getUTCHours();
+            const time = (n + new Date(data.timezone * 1000).getUTCHours()) % 24;
 
             if (today_weather === "Clouds"){
                 document.querySelector('#weather_icon').src = "images/cloudy-weather_200_transparent.gif";}
