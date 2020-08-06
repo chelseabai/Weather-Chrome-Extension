@@ -83,6 +83,7 @@ h1{
 	display: inline;
 	font-size: 30pt;
 	position: relative;
+	top: 10px;
 	left: 15px;
 }
 
@@ -90,11 +91,12 @@ h1{
 	display: inline;
 	font-size: 30pt;
 	position: relative;
-	left: 45px;
+	top: 10px;
+	left: 85px;
 }
 
 .forecast {
-	border: 3px solid black;
+/*	border: 3px solid black;*/
 	position: relative;
 	left: 2px;
 }
@@ -112,9 +114,10 @@ h1{
 
 #weather_icon {
 	position: relative;
-	bottom: 15px;
-	width: 150px;
-	height: 150px;
+	left: 15px;
+	bottom: 30px;
+	width: 120px;
+	height: 120px;
 }
 
 #search {
@@ -137,29 +140,31 @@ h1{
 #wind {
 	display: inline;
 	position: relative;
-	top: 8px;
+	top: 10px;
 	left: 10px;
-	font-size: 60px;
+	font-size: 40px;
 }
 
 #speed {
 	display: inline;
 	position: relative;
+	top: 10px;
 	left: 15px;
 }
 
 #water {
 	display: inline;
 	position: relative;
-	top: 8px;
-	left: 40px;
-	font-size: 60px;
+	top: 10px;
+	left: 80px;
+	font-size: 40px;
 }
 
 #percent {
 	display: inline;
 	position: relative;
-	left: 45px;
+	top: 10px;
+	left: 85px;
 }
 
 .daily_icon {
@@ -168,9 +173,9 @@ h1{
 }
 
 #per_day {
-	border: 3px solid black;
+/*	border: 3px solid black;*/
 	display: inline-block;
-	width: 41.1px;
+	width: 47px;
 	vertical-align: middle;
 	text-align: center;
 }

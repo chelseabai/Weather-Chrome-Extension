@@ -11,8 +11,8 @@ function weather(lat,lon){
             const city = (data.name);
             const country = (data.sys.country);
             const today_weather = (data.weather[0].main);
-            const humidity = (data.main.humidity);
-            const wind_speed = (data.wind.speed);
+            const humidity = (data.main.humidity).toPrecision(2);
+            const wind_speed = (data.wind.speed).toPrecision(2);
             const temp_high = (data.main.temp_max - 273.15).toFixed(1);
             const temp_low = (data.main.temp_min - 273.15).toFixed(1);
 
