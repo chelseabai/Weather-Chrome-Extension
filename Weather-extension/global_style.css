@@ -17,6 +17,13 @@ body {
 	margin: 0 0;
 }
 
+#loading{
+	height: 500px;
+	width: 360px;
+	background:linear-gradient(to bottom right,white,#80D8FF);
+	position: absolute;
+}
+
 #loading-image{
 	width:75px;
 	height:75px;
@@ -34,7 +41,7 @@ body {
 	text-align: center;
 	margin-top: 50%;
 	padding-top: 75px;
-	color: grey;
+	color: #01579B;
 	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
 }
 
