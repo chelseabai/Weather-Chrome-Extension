@@ -15,6 +15,7 @@ function weather(lat,lon){
             const wind_speed = (data.wind.speed).toPrecision(2);
             const temp_high = (data.main.temp_max - 273.15).toFixed(1);
             const temp_low = (data.main.temp_min - 273.15).toFixed(1);
+            const time = new Date(data.dt * 1000).getHours();
 
             if (today_weather === "Clouds"){
                 document.querySelector('#weather_icon').src = "images/cloudy-weather_200_transparent.gif";}
@@ -28,7 +29,13 @@ function weather(lat,lon){
                 document.querySelector('#weather_icon').src = "images/light-rain-weather_200_transparent.gif";}
             if (today_weather === "Thunderstorm"){
                 document.querySelector('#weather_icon').src = "images/torrential-rain-weather_200_transparent.gif";}
-            
+
+            if (7 < time && time <= 19){
+                document.getElementById("other_container").style.background = "orange";
+            }
+            if (time <= 7 || time > 19){
+                document.getElementById("other_container").style.background = "blue";
+            }
             document.querySelector('#high_temp').innerHTML=`High: ${temp_high}`;
             document.querySelector('#low_temp').innerHTML=`Low: ${temp_low}`;
             document.querySelector('h1').innerHTML=`${temp}`;
@@ -36,6 +43,7 @@ function weather(lat,lon){
             document.querySelector('#wind_speed').innerHTML=`${wind_speed}`;
             document.querySelector('h2').innerHTML=`${city}, ${country}`;
             document.querySelector('#weather').innerHTML= `Current Weather: ${today_weather}`;
+
         });
     let forecast_url= "https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&exclude=minutely,hourly,current&appid=3bec66c864ff4db301e895a8b65d8529";
     fetch(forecast_url)
@@ -62,6 +70,7 @@ function weather(lat,lon){
     //     // document.querySelector('#weather_icon').innerHTML= $("#weather_icon").attr("src", weather_ic["cloudy"].src);
     // }
 }
+
 
 function Main(){
     if ('geolocation' in navigator){
