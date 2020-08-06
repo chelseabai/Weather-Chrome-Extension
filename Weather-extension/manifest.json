@@ -33,12 +33,6 @@
     "48": "images/images48.png",
     "128": "images/images128.png"
   },
-
-  "weather_ic": {
-    "sunny": "images/sun-weather-transparent.gif",
-    "cloudy": "images/cloudy-weather-transparent.gif",
-    "windy": "images/windy-weather-transparent.gif"
-  },
   
   "manifest_version": 2
 }

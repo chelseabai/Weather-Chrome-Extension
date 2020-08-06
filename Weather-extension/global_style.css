@@ -38,14 +38,9 @@ body p {
     border: 3px solid black;
     width:200px;
     height:150px;
-    overflow: hidden;
-/*	line-height: 15px;*/
-/*	padding-top: 0px;*/
-	vertical-align: middle;
 	text-align: center;
-/*	display: table-cell;*/
 	display: inline-block;
-/*	float: left;*/
+	overflow: hidden;
 }
 
 #location{
@@ -116,8 +111,8 @@ h1{
 }
 
 #weather_icon {
-/*	text-align: center;*/
-	vertical-align: middle;
+	position: relative;
+	bottom: 15px;
 	width: 150px;
 	height: 150px;
 }
@@ -167,7 +162,7 @@ h1{
 	left: 45px;
 }
 
-#daily_icon {
+.daily_icon {
 	width: 40px;
 	height: 40px;
 }
@@ -178,4 +173,10 @@ h1{
 	width: 41.1px;
 	vertical-align: middle;
 	text-align: center;
+}
+
+#go {
+	position: relative;
+	left: 170px;
+	bottom: 21.5px;
 }

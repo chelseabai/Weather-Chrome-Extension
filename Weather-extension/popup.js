@@ -15,6 +15,27 @@ function weather(lat,lon){
             const wind_speed = (data.wind.speed);
             const temp_high = (data.main.temp_max - 273.15).toFixed(1);
             const temp_low = (data.main.temp_min - 273.15).toFixed(1);
+            const time = new Date(data.dt * 1000).getHours();
+
+            if (today_weather === "Clouds"){
+                document.querySelector('#weather_icon').src = "images/cloudy-weather_200_transparent.gif";}
+            if (today_weather === "Clear"){
+                document.querySelector('#weather_icon').src = "images/sun-weather_200_transparent.gif";}
+            if (today_weather === "Snow"){
+                document.querySelector('#weather_icon').src = "images/snow-storm-weather_200_transparent.gif";}
+            if (today_weather === "Rain"){
+                document.querySelector('#weather_icon').src = "images/rainy-weather_200_transparent.gif";}
+            if (today_weather === "Drizzle"){
+                document.querySelector('#weather_icon').src = "images/light-rain-weather_200_transparent.gif";}
+            if (today_weather === "Thunderstorm"){
+                document.querySelector('#weather_icon').src = "images/torrential-rain-weather_200_transparent.gif";}
+
+            if (7 < time && time <= 19){
+                document.getElementById("other_container").style.background = "orange";
+            }
+            if (time <= 7 || time > 19){
+                document.getElementById("other_container").style.background = "blue";
+            }
             document.querySelector('#high_temp').innerHTML=`High: ${temp_high}`;
             document.querySelector('#low_temp').innerHTML=`Low: ${temp_low}`;
             document.querySelector('h1').innerHTML=`${temp}`;
@@ -33,15 +54,18 @@ function weather(lat,lon){
             for (i = 0; i < 7; i++) {
                 const weekday = days[new Date(data.daily[i].dt * 1000).getDay()];
                 const daily_temp = (data.daily[i].temp.day - 273.5).toFixed(1);
+                const icon_id = (data.daily[i].weather[0].icon);
+                let icon_url = "http://openweathermap.org/img/wn/"+icon_id+"@2x.png";
                 document.querySelectorAll(".daily_temp")[i].innerHTML=`${daily_temp}'C`;
                 document.querySelectorAll(".day")[i].innerHTML=`${weekday}`;
+                document.querySelectorAll(".daily_icon")[i].src = icon_url;
             }
         })
     
     // const test = ('The if statment worked');
     // if (document.getElementById('#weather').innerHTML == "Current Weather: Clouds") {
     //     // const testt = (`yes`);
-    //     // document.getElementById('#weather_icon').src = "images\cloudy-weather-transparent.gif";
+    //     // document.getElementById('#weather_icon').src = "images\cloudy-weather_200_transparent.gif";
     //     document.querySelector('#heading').innerHTML=`${test}`;
     //     // document.querySelector('#weather_icon').innerHTML= $("#weather_icon").attr("src", weather_ic["cloudy"].src);
     // }
