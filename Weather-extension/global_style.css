@@ -53,7 +53,15 @@
 	left: 10px;
 }
 
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-style: normal;
+}
+
+			
 h1{
+	font-family: "Poppins";
+	font-weight: lighter;
     font-size: 50px;
     display: inline-block;
 }
@@ -66,16 +74,16 @@ h1{
 }
 
 #high_temp {
-	position: relative;
-	bottom: 70px;
-	right: 47px;
+	position: absolute;
+	top: 102px;
+	right: 15px;
 }
 
 
 #low_temp {
-	position: relative;
-	bottom: 106px;
-	left: 47px;
+	position: absolute;
+	top: 102px;
+	left: 15px;
 }
 
 #wind_speed {

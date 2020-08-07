@@ -11,7 +11,7 @@ function weather(lat,lon){
             const country = (data.sys.country);
             const today_weather = (data.weather[0].main);
             const humidity = (data.main.humidity).toPrecision(3);
-            const wind_speed = (data.wind.speed).toPrecision(2);
+            const wind_speed = (data.wind.speed);
             const temp_high = (data.main.temp_max - 273.15).toFixed(1);
             const temp_low = (data.main.temp_min - 273.15).toFixed(1);
             var d = new Date();
@@ -45,8 +45,14 @@ function weather(lat,lon){
 				accent_d = "#b057b9"; //dark colour
                 search_c = "#dcc6e0";
             }
+<<<<<<< HEAD
 			DayNight(accent_l,accent_d,main_l,main_d,search_c);
 		
+=======
+			DayNight(accent_l,accent_d,main_l,main_d);
+			
+			
+>>>>>>> f0ac8737b3ccd2f86ae4b20c8061c048c9b02335
             document.querySelector('#high_temp').innerHTML=`&#11014High: ${temp_high}`;
             document.querySelector('#low_temp').innerHTML=`&#11015Low: ${temp_low}`;
             document.querySelector('#temp').innerHTML=`${temp}`;
