@@ -160,7 +160,6 @@ document.addEventListener('DOMContentLoaded',()=>{
         Search();
         event.preventDefault();
     });
-    var saved_mode; 
     chrome.storage.sync.get(['savedMode'],function (data) {
         let saved_mode = data.savedMode;
         if (saved_mode == null) {
