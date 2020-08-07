@@ -45,7 +45,12 @@ function weather(lat,lon){
             }
 			DayNight(accent_l,accent_d,main_l,main_d);
 			
-			
+			if (humidity < 1) {
+				humidity = humidity.toPrecision(1);
+			} else {
+				humidity = humidity.toPrecision(2);
+			}
+		
             document.querySelector('#high_temp').innerHTML=`&#11014High: ${temp_high}`;
             document.querySelector('#low_temp').innerHTML=`&#11015Low: ${temp_low}`;
             document.querySelector('#temp').innerHTML=`${temp}`;
