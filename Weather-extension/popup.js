@@ -142,7 +142,7 @@ function LightDark(saved_mode, accent_l,accent_d) {
 		document.getElementById("mode_icon").className = "far fa-lightbulb";
 		document.getElementById("mode").style.background = accent_l;
 		document.getElementById("mode").style.color = "#ffffff";
-		document.querySelector("body").style.background = "#000000";
+		document.querySelector("body").style.background = "#2c3e50";
 		document.querySelector("body").style.color = "#ffffff";
 	}
 }
