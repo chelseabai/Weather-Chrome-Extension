@@ -1,6 +1,10 @@
 
 // OpenWeather API Key 3bec66c864ff4db301e895a8b65d8529
 
+// global variables
+var accent_l = "#f3ab3a"; //light colour
+var accent_d = "#d6578c"; //dark colour
+
 function weather(lat,lon){
     let weather_url = "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=3bec66c864ff4db301e895a8b65d8529"
     fetch(weather_url)
@@ -45,8 +49,8 @@ function weather(lat,lon){
 				accent_d = "#b057b9"; //dark colour
                 search_c = "#d5b8ff";
             }
-			DayNight(accent_l,accent_d,main_l,main_d);
-			
+			DayNight(accent_l,accent_d,main_l,main_d,search_c);
+		
 			if (wind_speed < 1) {
 				wind_speed = wind_speed.toPrecision(1);
 			} else {
@@ -131,50 +135,50 @@ function DayNight(accent_l,accent_d,main_l,main_d,search_c){
 function LightDark(saved_mode) {
 	if (saved_mode > 0) {
 		document.getElementById("mode_icon").className = "fas fa-lightbulb";
-		document.getElementById("mode").style.background = "#b057b9";
+		document.getElementById("mode").style.background = accent_d;
 		document.getElementById("mode").style.color = "#000000";
-		document.querySelector("body").style.background = "#ffffff";
+		document.querySelector("body").style.background = "#ffffff"; // light mode
 		document.querySelector("body").style.color = "#000000";
-        document.getElementById("search").style.background = `white`;
 	} else {
 		document.getElementById("mode_icon").className = "far fa-lightbulb";
-		document.getElementById("mode").style.background = "#e89232";
+		document.getElementById("mode").style.background = accent_l;
 		document.getElementById("mode").style.color = "#ffffff";
-		document.querySelector("body").style.background = "#2c3e50";
+		document.querySelector("body").style.background = "#2c3e50"; // dark mode
 		document.querySelector("body").style.color = "#ffffff";
-        document.getElementById("search").style.background = `#2c3e50`;
 	}
 }
 
 document.addEventListener('DOMContentLoaded',()=>{
     Main();
     document.getElementById('container').style.visibility="hidden";
-	document.querySelector('body').style.background = "white";
     setTimeout(function(){
         document.getElementById('loading').style.visibility="hidden";
         document.getElementById('container').style.visibility="visible";
-    },4000);
-    var saved_mode;
-    chrome.storage.sync.get(['savedMode'],function (data) {
-        let saved_mode = data.savedMode;
-        if (saved_mode === 'undefined') {
-            saved_mode = 1;
-        }    
-        LightDark(saved_mode);
-    });
+    },2500);
     const form = document.getElementById("search");
     form.addEventListener('submit',function(event){
         Search();
         event.preventDefault();
     });
-
-    document.querySelector('#mode').addEventListener('click',function() {
-		if (saved_mode > 0) {
-			saved_mode = -1;
-		} else {
-			saved_mode = 1;
-		}
-        chrome.storage.sync.set({savedMode: saved_mode});
+    var saved_mode; 
+    chrome.storage.sync.get(['savedMode'],function (data) {
+        let saved_mode = data.savedMode;
+        if (saved_mode == null) {
+            saved_mode = 1; // light mode default
+            chrome.storage.sync.set({savedMode: saved_mode});
+        }    
         LightDark(saved_mode);
+    });
+    document.querySelector('#mode').addEventListener('click',function() {
+        chrome.storage.sync.get(['savedMode'],function (data) {
+            let saved_mode = data.savedMode;
+            if (saved_mode === 1) {
+                saved_mode = -1;
+            } else {
+                saved_mode = 1;
+            }
+            chrome.storage.sync.set({savedMode: saved_mode});
+            LightDark(saved_mode);
+        });
     });
 });

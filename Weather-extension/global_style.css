@@ -1,36 +1,11 @@
 @charset "utf-8";
-#heading {
-/*	font-size: 20pt;*/
-/*   	background: linear-gradient(to bottom right, #0033cc, #cc99ff);*/
-/*
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-*/
-}
-
-
-
-
-.btn {
-	border: none;
-	cursor: pointer;
-}
-#mode:hover {
-  opacity: 1;
-}
 
 #container {
     height: 440px;
     width: 360px;
 }
 
-#page_container {
-	margin: auto;
-	width: 50%;
-}
-
 #temp_container {
-/*    border: 3px solid black;*/
     width:200px;
     height:150px;
 	text-align: center;
@@ -39,13 +14,10 @@
 	position: absolute;
 	left: -2px;
 	top: 90px;
-/*	border-radius: 15px;*/
 	background: grey;
-/*	font-size: 0px;*/
 }
 
 #location{
-/*    border: 3px solid black;*/
 	height: 40px;
 	width: 180px;
 	position: relative;
@@ -103,15 +75,11 @@ h1{
 }
 
 .forecast {
-/*	border: 3px solid black;*/
 	position: absolute;
 	left: 10px;
 	top: 315px;
 }
 
-.day_forecast {
-	border-color: #000000;
-}
 #temp {
     font-size: 50pt;
 	line-height: 0px;
@@ -127,18 +95,6 @@ h1{
 	height: 120px;
 }
 
-#search {
-	display: block;
-	background: grey;
-	padding-left: 10px;
-	padding-top: 10px;
-	padding-bottom: 0px;
-	width: 380px;
-	height: 34.6px;
-	position: absolute;
-	left: -2px;
-}
-
 #weather {
 	color: black;
 	width: 175px;
@@ -152,8 +108,6 @@ h1{
 #other_container {
 	height: 80px;
 	width: 380px;
-/*	border-radius: 15px;*/
-/*	border: 2px solid;*/
 	position: absolute;
 	top: 235px;
 	left: -2px;
@@ -203,15 +157,25 @@ h1{
 
 #go {
 	position: relative;
-	left: 283px;
+	left: 325px;
 	bottom: 32px;
 	height: 34px;
 	width: auto;
-/*	background-color: #cc99ff;*/
 	color: white;
     border: none;
 	cursor: pointer;
 	border-radius: 5px;
+}
+
+#search {
+	display: block;
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-bottom: 0px;
+	width: 380px;
+	height: 34.6px;
+	position: absolute;
+	left: -2px;
 }
 
 #search_input {
@@ -220,8 +184,9 @@ h1{
 	border-radius: 5px;
 	margin-left:50px;
 	padding:5px;
-	width: 230px;
+	width: 340px;
 	height:18px;
+	left: -50px;
 	font-family: "Open Sans",serif;
 	border: white 1px solid;
 }
@@ -241,13 +206,17 @@ h1{
 #mode {
 	border: none;
 	cursor: pointer;
-	background-color: #7BD2DE;
+	background-color: #a2a2a2;
     padding: 7px 10px;
     font-size: 16px;
     right: 5px;
     top: 5px;
     position: absolute;
 	opacity: 0.5;
+}
+
+#mode:hover {
+	opacity: 1;
 }
 
 #icon_bg {
@@ -261,16 +230,19 @@ h1{
 
 #loading {
 	position: fixed;
-	width: 440px;
-	height: 360px;
+	left: -2px;
+	top: -10px;
+	width: 800px;
+	height: 800px;
+	background: white;
 }
 
 #loading-image {
 	width: 150px;
 	height: 150px;
 	position: absolute;
-	top: 110px;
-	left: 100px;
+	top: 120px;
+	left: 110px;
 }
 
 h5 {
@@ -279,6 +251,6 @@ h5 {
 	-webkit-text-fill-color: transparent;
 	font-size: 12pt;
 	position: absolute;
-	top: 220px;
-	left: 100px;
+	top: 224px;
+	left: 115px;
 }
