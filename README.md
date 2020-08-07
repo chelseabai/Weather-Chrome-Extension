@@ -18,5 +18,4 @@ Step 3: Click "Load Unpacked" and upload the package INSIDE this folder named as
 Step 4: Active the extension and pin it on the bar to use it!
 
 # References
-Google Fonts
-FontAwesome Icons
+Google Fonts, FontAwesome Icons
