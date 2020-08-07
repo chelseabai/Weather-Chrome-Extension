@@ -32,10 +32,10 @@ function weather(lat,lon){
                 document.querySelector('#weather_icon').src = "images/torrential-rain-weather_200_transparent.gif";}
             
             if (7 < time && time <= 19){
-				main_l = "#ffffcc"; //light colour
-				main_d = "#ffcc99"; //dark colour
-				accent_l = "#ffffcc"; //light colour
-				accent_d = "#ffcc99"; //dark colour
+				main_l = "#83EAF1"; //light colour
+				main_d = "#63A4FF"; //dark colour
+				accent_l = "#F7B42C"; //light colour
+				accent_d = "#FC575E"; //dark colour
             }
             else {
 				main_l = "#0033cc"; //light colour
@@ -114,10 +114,10 @@ function DayNight(accent_l,accent_d,main_l,main_d){
     var m;
 	
 	document.getElementById("other_container").style.background = `linear-gradient(to bottom right, ${main_l} 0%, ${main_d}) 100%`;
-	document.getElementById("search").style.background = `linear-gradient(to bottom right, ${main_l} 0%, ${main_d}) 100%`;
+	document.getElementById("search").style.background = `white`;
 	document.getElementById("temp_container").style.background = `linear-gradient(to bottom right, ${accent_l} 0%, ${accent_d}) 100%`;
 	document.getElementById("heading").style.color = main_d;
-	document.getElementById("go").style.background = main_d;
+	document.getElementById("go").style.background = accent_l;
 	for (a = 0; a < 6; a++) {
 	document.getElementsByClassName("line")[a].style.background = main_l;
 	}
