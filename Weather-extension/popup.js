@@ -11,7 +11,7 @@ function weather(lat,lon){
             const country = (data.sys.country);
             const today_weather = (data.weather[0].main);
             const humidity = (data.main.humidity).toPrecision(3);
-            const wind_speed = (data.wind.speed);
+            var wind_speed = (data.wind.speed);
             const temp_high = (data.main.temp_max - 273.15).toFixed(1);
             const temp_low = (data.main.temp_min - 273.15).toFixed(1);
             var d = new Date();
@@ -32,9 +32,9 @@ function weather(lat,lon){
                 document.querySelector('#weather_icon').src = "images/torrential-rain-weather_200_transparent.gif";}
             
             if (7 < time && time <= 19){
-				main_l = "#83EAF1"; //light colour
-				main_d = "#63A4FF"; //dark colour
-				accent_l = "#F7B42C"; //light colour
+				main_l = "#cefcff"; //light colour
+				main_d = "#5199ff"; //dark colour
+				accent_l = "#ffc643"; //light colour
 				accent_d = "#FC575E"; //dark colour
                 search_c = "#B3E5FC";
             }
@@ -47,10 +47,10 @@ function weather(lat,lon){
             }
 			DayNight(accent_l,accent_d,main_l,main_d);
 			
-			if (humidity < 1) {
-				humidity = humidity.toPrecision(1);
+			if (wind_speed < 1) {
+				wind_speed = wind_speed.toPrecision(1);
 			} else {
-				humidity = humidity.toPrecision(2);
+				wind_speed = wind_speed.toPrecision(2);
 			}
 		
             document.querySelector('#high_temp').innerHTML=`&#11014High: ${temp_high}`;
@@ -136,10 +136,16 @@ function DayNight(accent_l,accent_d,main_l,main_d,search_c){
 //	}
 }
 
-function LightDark(saved_mode, accent_l,accent_d) {
-//	chrome.storage.sync.set({
-//      savedMode: saved_mode
-//    });
+function LightDark(accent_l,accent_d) {
+	chrome.storage.sync.get("savedMode", function (obj) {
+		if (!chrome.runtime.error) {
+			console.log(obj);
+			var saved_mode = obj.data.value;
+		} else {
+			var saved_mode = 1;
+		}
+	});
+
 	if (saved_mode > 0) {
 		document.getElementById("mode_icon").className = "fas fa-lightbulb";
 		document.getElementById("mode").style.background = accent_d;
@@ -156,7 +162,9 @@ function LightDark(saved_mode, accent_l,accent_d) {
         document.getElementById("search").style.background = `#2c3e50`;
 	}
 }
-
+//chrome.storage.local.set({
+//	savedMode: 1
+//});
 document.addEventListener('DOMContentLoaded',()=>{
     Main();
     document.getElementById('container').style.visibility="hidden";
@@ -164,7 +172,6 @@ document.addEventListener('DOMContentLoaded',()=>{
         document.getElementById('loading').style.visibility="hidden";
         document.getElementById('container').style.visibility="visible";
     },4000);
-    var saved_mode = 1;
 	var main_l = "#0033cc"; //light colour
 	var main_d = "#cc99ff"; //dark colour
 	var accent_l = "#e89232"; //light colour
@@ -175,20 +182,16 @@ document.addEventListener('DOMContentLoaded',()=>{
         event.preventDefault();
     });
     Main();
-	LightDark(saved_mode, accent_l,accent_d);
+	LightDark(accent_l,accent_d);
     document.querySelector('#mode').addEventListener('click',function() {
-//		chrome.runtime.openOptionsPage();
-//		if (chrome.runtime.openOptionsPage) {
-//            chrome.runtime.openOptionsPage();
-//        } else {
-//            window.open(chrome.runtime.getURL('options.html'));
-//        }
 		if (saved_mode > 0) {
 			saved_mode = -1;
-			LightDark(saved_mode, accent_l,accent_d);
 		} else {
 			saved_mode = 1;
-			LightDark(saved_mode, accent_l,accent_d);
 		}
+		chrome.storage.sync.set({
+      			savedMode: saved_mode
+    		});
+		LightDark(accent_l,accent_d);
     });
 });
