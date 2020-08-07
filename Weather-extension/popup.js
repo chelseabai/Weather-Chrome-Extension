@@ -43,16 +43,10 @@ function weather(lat,lon){
 				main_d = "#cc99ff"; //dark colour
 				accent_l = "#e89232"; //light colour
 				accent_d = "#b057b9"; //dark colour
-                search_c = "#dcc6e0";
+                search_c = "#d5b8ff";
             }
-<<<<<<< HEAD
 			DayNight(accent_l,accent_d,main_l,main_d,search_c);
-		
-=======
-			DayNight(accent_l,accent_d,main_l,main_d);
-			
-			
->>>>>>> f0ac8737b3ccd2f86ae4b20c8061c048c9b02335
+
             document.querySelector('#high_temp').innerHTML=`&#11014High: ${temp_high}`;
             document.querySelector('#low_temp').innerHTML=`&#11015Low: ${temp_low}`;
             document.querySelector('#temp').innerHTML=`${temp}`;
