@@ -36,12 +36,14 @@ function weather(lat,lon){
 				main_d = "#63A4FF"; //dark colour
 				accent_l = "#F7B42C"; //light colour
 				accent_d = "#FC575E"; //dark colour
+                search_c = "#B3E5FC";
             }
             else {
 				main_l = "#0033cc"; //light colour
 				main_d = "#cc99ff"; //dark colour
 				accent_l = "#e89232"; //light colour
 				accent_d = "#b057b9"; //dark colour
+                search_c = "#d5b8ff";
             }
 			DayNight(accent_l,accent_d,main_l,main_d);
 			
@@ -115,15 +117,15 @@ function Search() {
     })
 }
 
-function DayNight(accent_l,accent_d,main_l,main_d){
+function DayNight(accent_l,accent_d,main_l,main_d,search_c){
 	var content = document.querySelectorAll("#wind, #wind_speed, #speed, #water, #humidity, #percent, #location, #degree, #high_temp, #low_temp");
     var m;
 	
 	document.getElementById("other_container").style.background = `linear-gradient(to bottom right, ${main_l} 0%, ${main_d}) 100%`;
-	document.getElementById("search").style.background = `white`;
 	document.getElementById("temp_container").style.background = `linear-gradient(to bottom right, ${accent_l} 0%, ${accent_d}) 100%`;
 	document.getElementById("heading").style.color = main_d;
 	document.getElementById("go").style.background = accent_l;
+    document.getElementById("search_input").style.background = search_c;
 	for (a = 0; a < 6; a++) {
 	document.getElementsByClassName("line")[a].style.background = main_l;
 	}
@@ -144,12 +146,14 @@ function LightDark(saved_mode, accent_l,accent_d) {
 		document.getElementById("mode").style.color = "#000000";
 		document.querySelector("body").style.background = "#ffffff";
 		document.querySelector("body").style.color = "#000000";
+        document.getElementById("search").style.background = `white`;
 	} else {
 		document.getElementById("mode_icon").className = "far fa-lightbulb";
 		document.getElementById("mode").style.background = accent_l;
 		document.getElementById("mode").style.color = "#ffffff";
 		document.querySelector("body").style.background = "#2c3e50";
 		document.querySelector("body").style.color = "#ffffff";
+        document.getElementById("search").style.background = `#2c3e50`;
 	}
 }
 
