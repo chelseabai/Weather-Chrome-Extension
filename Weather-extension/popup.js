@@ -118,9 +118,6 @@ function Search() {
 }
 
 function DayNight(accent_l,accent_d,main_l,main_d,search_c){
-	var content = document.querySelectorAll("#wind, #wind_speed, #speed, #water, #humidity, #percent, #location, #degree, #high_temp, #low_temp");
-    var m;
-	
 	document.getElementById("other_container").style.background = `linear-gradient(to bottom right, ${main_l} 0%, ${main_d}) 100%`;
 	document.getElementById("temp_container").style.background = `linear-gradient(to bottom right, ${accent_l} 0%, ${accent_d}) 100%`;
 	document.getElementById("heading").style.color = main_d;
@@ -129,13 +126,9 @@ function DayNight(accent_l,accent_d,main_l,main_d,search_c){
 	for (a = 0; a < 6; a++) {
 	document.getElementsByClassName("line")[a].style.background = main_l;
 	}
-//	for (m = 0; m < content.length; m++) {
-//		content[m].style.color = 
-//			"#000066"; //dark blue
-//				"#d0a1ff"; //light purple
-//	}
 }
 
+<<<<<<< HEAD
 function LightDark(accent_l,accent_d) {
 	chrome.storage.sync.get("savedMode", function (obj) {
 		if (!chrome.runtime.error) {
@@ -146,6 +139,12 @@ function LightDark(accent_l,accent_d) {
 		}
 	});
 
+=======
+function LightDark(saved_mode, accent_l,accent_d) {
+	chrome.storage.sync.set({
+     savedMode: saved_mode
+    });
+>>>>>>> fadcade41d38d94f834a62ef417fce3c348fe74d
 	if (saved_mode > 0) {
 		document.getElementById("mode_icon").className = "fas fa-lightbulb";
 		document.getElementById("mode").style.background = accent_d;
@@ -172,18 +171,40 @@ document.addEventListener('DOMContentLoaded',()=>{
         document.getElementById('loading').style.visibility="hidden";
         document.getElementById('container').style.visibility="visible";
     },4000);
+<<<<<<< HEAD
 	var main_l = "#0033cc"; //light colour
 	var main_d = "#cc99ff"; //dark colour
 	var accent_l = "#e89232"; //light colour
 	var accent_d = "#b057b9"; //dark colour
+=======
+    chrome.storage.sync.get(['savedMode'],function (data) {
+        let saved_mode = data.savedMode;
+        LightDark(saved_mode, accent_l,accent_d);
+    });
+    var saved_mode = 1;
+    var accent_l = "#e89232"; //light colour
+    var accent_d = "#b057b9"; //dark colour
+    LightDark(saved_mode, accent_l,accent_d);
+>>>>>>> fadcade41d38d94f834a62ef417fce3c348fe74d
     const form = document.getElementById("search");
     form.addEventListener('submit',function(event){
         Search();
         event.preventDefault();
     });
+<<<<<<< HEAD
     Main();
 	LightDark(accent_l,accent_d);
     document.querySelector('#mode').addEventListener('click',function() {
+=======
+
+    document.querySelector('#mode').addEventListener('click',function() {
+//		chrome.runtime.openOptionsPage();
+//		if (chrome.runtime.openOptionsPage) {
+//            chrome.runtime.openOptionsPage();
+// //        } else {
+// //            window.open(chrome.runtime.getURL('options.html'));
+// //        }
+>>>>>>> fadcade41d38d94f834a62ef417fce3c348fe74d
 		if (saved_mode > 0) {
 			saved_mode = -1;
 		} else {
