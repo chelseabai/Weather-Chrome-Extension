@@ -4,7 +4,7 @@ A chrome extension that gives you the current weather information based on your 
 
 Special features:
 1. Current weather data and forecast based on your device's GPS location.
-2. Receive city input and display that city's current weather and weekly forecast.
+2. Input city into search bar and display that city's current weather and weekly forecast.
 3. Dynamic colour mode that changes with the time of the day.
 4. Switch between light and dark mode by clicking the top right button.
 
