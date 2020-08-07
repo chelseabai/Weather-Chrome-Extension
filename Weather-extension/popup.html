@@ -4,7 +4,19 @@
     <meta charset="UTF-8">
     <title>Weather with me</title>
     <link href="global_style.css" rel="stylesheet" type="text/css">
-	<script src="fontawesome.js"></script> 
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+	<script src="fontawesome.js"></script>
+	<style>
+		body {
+			font-family: 'Open Sans Light', serif;
+			font-style: normal;
+		}
+		h1 {
+			font-family: "Poppins";
+			font-weight: lighter;
+		}
+	</style>
 </head>
 <body>
 	<div id="loading">
@@ -27,9 +39,9 @@
 		  <h3 id="high_temp"></h3>
        	  <h3 id="low_temp"></h3>
         </div>
-		<div id="icon_bg"></div>
+		<div id="icon_bg"><div id="weather"></div></div>
 		<img id="weather_icon" alt=""/>
-		<div id="weather"></div>
+
 		
 		
 		<div id="other_container">

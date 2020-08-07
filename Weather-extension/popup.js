@@ -45,13 +45,13 @@ function weather(lat,lon){
             }
 			DayNight(accent_l,accent_d,main_l,main_d);
 		
-            document.querySelector('#high_temp').innerHTML=`High: ${temp_high}`;
-            document.querySelector('#low_temp').innerHTML=`Low: ${temp_low}`;
+            document.querySelector('#high_temp').innerHTML=`&#11014High: ${temp_high}`;
+            document.querySelector('#low_temp').innerHTML=`&#11015Low: ${temp_low}`;
             document.querySelector('#temp').innerHTML=`${temp}`;
             document.querySelector('#humidity').innerHTML=`${humidity}`;
             document.querySelector('#wind_speed').innerHTML=`${wind_speed}`;
             document.querySelector('h2').innerHTML=`${city}, ${country}`;
-            document.querySelector('#weather').innerHTML= `Current Weather: ${today_weather}`;
+            document.querySelector('#weather').innerHTML= `${today_weather}`;
         });
     let forecast_url= "https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&exclude=minutely,hourly,current&appid=3bec66c864ff4db301e895a8b65d8529";
     fetch(forecast_url)
@@ -64,7 +64,7 @@ function weather(lat,lon){
                 const daily_temp = (data.daily[i].temp.day - 273.5).toFixed(1);
                 const icon_id = (data.daily[i].weather[0].icon);
                 let icon_url = "http://openweathermap.org/img/wn/"+icon_id+"@2x.png";
-                document.querySelectorAll(".daily_temp")[i].innerHTML=`${daily_temp}'C`;
+                document.querySelectorAll(".daily_temp")[i].innerHTML=`${daily_temp}°`;
                 document.querySelectorAll(".day")[i].innerHTML=`${weekday}`;
                 document.querySelectorAll(".daily_icon")[i].src = icon_url;
             }
