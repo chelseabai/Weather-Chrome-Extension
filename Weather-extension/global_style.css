@@ -209,13 +209,13 @@ h1{
 #search_input {
 	position: relative;
 	margin-top:-3px;
-	border: white solid 1px;
 	border-radius: 5px;
 	margin-left:50px;
 	padding:5px;
 	width: 230px;
 	height:18px;
 	font-family: "Open Sans",serif;
+	border: white 1px solid;
 }
 
 #search_input:focus{
