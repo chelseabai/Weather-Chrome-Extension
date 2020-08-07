@@ -128,91 +128,53 @@ function DayNight(accent_l,accent_d,main_l,main_d,search_c){
 	}
 }
 
-<<<<<<< HEAD
-function LightDark(accent_l,accent_d) {
-	chrome.storage.sync.get("savedMode", function (obj) {
-		if (!chrome.runtime.error) {
-			console.log(obj);
-			var saved_mode = obj.data.value;
-		} else {
-			var saved_mode = 1;
-		}
-	});
-
-=======
-function LightDark(saved_mode, accent_l,accent_d) {
-	chrome.storage.sync.set({
-     savedMode: saved_mode
-    });
->>>>>>> fadcade41d38d94f834a62ef417fce3c348fe74d
+function LightDark(saved_mode) {
 	if (saved_mode > 0) {
 		document.getElementById("mode_icon").className = "fas fa-lightbulb";
-		document.getElementById("mode").style.background = accent_d;
+		document.getElementById("mode").style.background = "#b057b9";
 		document.getElementById("mode").style.color = "#000000";
 		document.querySelector("body").style.background = "#ffffff";
 		document.querySelector("body").style.color = "#000000";
         document.getElementById("search").style.background = `white`;
 	} else {
 		document.getElementById("mode_icon").className = "far fa-lightbulb";
-		document.getElementById("mode").style.background = accent_l;
+		document.getElementById("mode").style.background = "#e89232";
 		document.getElementById("mode").style.color = "#ffffff";
 		document.querySelector("body").style.background = "#2c3e50";
 		document.querySelector("body").style.color = "#ffffff";
         document.getElementById("search").style.background = `#2c3e50`;
 	}
 }
-//chrome.storage.local.set({
-//	savedMode: 1
-//});
+
 document.addEventListener('DOMContentLoaded',()=>{
     Main();
     document.getElementById('container').style.visibility="hidden";
+	document.querySelector('body').style.background = "white";
     setTimeout(function(){
         document.getElementById('loading').style.visibility="hidden";
         document.getElementById('container').style.visibility="visible";
     },4000);
-<<<<<<< HEAD
-	var main_l = "#0033cc"; //light colour
-	var main_d = "#cc99ff"; //dark colour
-	var accent_l = "#e89232"; //light colour
-	var accent_d = "#b057b9"; //dark colour
-=======
+    var saved_mode;
     chrome.storage.sync.get(['savedMode'],function (data) {
         let saved_mode = data.savedMode;
-        LightDark(saved_mode, accent_l,accent_d);
+        if (saved_mode === 'undefined') {
+            saved_mode = 1;
+        }    
+        LightDark(saved_mode);
     });
-    var saved_mode = 1;
-    var accent_l = "#e89232"; //light colour
-    var accent_d = "#b057b9"; //dark colour
-    LightDark(saved_mode, accent_l,accent_d);
->>>>>>> fadcade41d38d94f834a62ef417fce3c348fe74d
     const form = document.getElementById("search");
     form.addEventListener('submit',function(event){
         Search();
         event.preventDefault();
     });
-<<<<<<< HEAD
-    Main();
-	LightDark(accent_l,accent_d);
-    document.querySelector('#mode').addEventListener('click',function() {
-=======
 
     document.querySelector('#mode').addEventListener('click',function() {
-//		chrome.runtime.openOptionsPage();
-//		if (chrome.runtime.openOptionsPage) {
-//            chrome.runtime.openOptionsPage();
-// //        } else {
-// //            window.open(chrome.runtime.getURL('options.html'));
-// //        }
->>>>>>> fadcade41d38d94f834a62ef417fce3c348fe74d
 		if (saved_mode > 0) {
 			saved_mode = -1;
 		} else {
 			saved_mode = 1;
 		}
-		chrome.storage.sync.set({
-      			savedMode: saved_mode
-    		});
-		LightDark(accent_l,accent_d);
+        chrome.storage.sync.set({savedMode: saved_mode});
+        LightDark(saved_mode);
     });
 });
