@@ -19,3 +19,5 @@ Step 4: Active the extension and pin it on the bar to use it!
 
 # References
 Google Fonts, FontAwesome, Icons8 (www.icons8.com), Open Weather Maps, Open Street Maps
+
+Developed by Xinyu Bai & Farzana Zainal Abidin
