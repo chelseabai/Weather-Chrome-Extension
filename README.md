@@ -1,6 +1,7 @@
 # Weather With Me
 
 A chrome extension that gives you the current weather information based on your current GPS location. 
+A full demo of the outcome at: https://xinyubai.myportfolio.com/weather-with-me.
 
 Special features:
 1. Current weather data and forecast based on your device's GPS location.
